@@ -19,6 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
         [API]: pokemons,
       },
     },
+    revalidate: 10000,
   };
 };
 
