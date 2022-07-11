@@ -1,4 +1,4 @@
-Small application to explore and play around with next.js.
+Small application to explore and play around with next.js and tailwind.
 
 It is accessible on:  
 https://next-pokemon-sooty.vercel.app/
