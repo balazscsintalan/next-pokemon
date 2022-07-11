@@ -17,7 +17,9 @@ const SearchComponent = () => {
     if (!searchTerm) {
       return [];
     }
-    return pokemons?.filter((it) => it.name.includes(searchTerm));
+    return pokemons?.filter((it) =>
+      it.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   }, [pokemons, searchTerm]);
 
   const onSearchTermChange = (event: React.ChangeEvent<HTMLInputElement>) => {
