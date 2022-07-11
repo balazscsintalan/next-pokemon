@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import Navbar from '../components/navbar/Navbar';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
@@ -9,6 +10,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       <meta name="description" content="Pokedex with pokemonapi" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
+    <Navbar />
     <Component {...pageProps} />
   </>
 );
