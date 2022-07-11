@@ -1,13 +1,12 @@
 import React from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 import { SWRConfig } from 'swr';
-import { IPokemon } from 'pokeapi-typescript';
-import { getAllPokemons } from '../api/pokemon';
+import { INamedApiResource, IPokemon } from 'pokeapi-typescript';
+import { getAllPokemons, pokemonFetcher } from '../api/pokemon';
 import SearchComponent from '../components/search/SearchComponent';
-import fetcher from '../api/fetcher';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pokemons: IPokemon[] = await fetcher(getAllPokemons);
+  const pokemons = await pokemonFetcher(getAllPokemons);
   return {
     props: {
       fallback: {
@@ -20,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 interface PageProps {
   fallback: {
-    [getAllPokemons]: IPokemon[];
+    [getAllPokemons]: INamedApiResource<IPokemon>[];
   };
 }
 
