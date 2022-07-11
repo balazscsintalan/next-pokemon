@@ -3,6 +3,8 @@ import { INamedApiResource, IPokemon } from 'pokeapi-typescript';
 import React from 'react';
 import PokemonSearchItem from './PokemonSearchItem';
 import { getAllPokemons, pokemonFetcher } from '../../api/pokemon';
+import Image from 'next/image';
+import charmander from '../../public/charmander.png';
 
 const SearchComponent = () => {
   const { data: pokemons } = useSWR<INamedApiResource<IPokemon>[]>(
@@ -24,7 +26,15 @@ const SearchComponent = () => {
 
   return (
     <div className="w-screen h-screen flex flex-col items-center">
-      <div className="mt-60 max-w-screen-sm flex flex-col items-center">
+      <div className="mt-60 h-36 w-60 block">
+        <Image
+          layout="responsive"
+          src={charmander}
+          alt="Picture of Charmander"
+          placeholder="blur"
+        />
+      </div>
+      <div className="max-w-screen-sm flex flex-col items-center">
         <h1 className="font-bold text-3xl">Search for your Pokemon</h1>
         <input
           type="text"
