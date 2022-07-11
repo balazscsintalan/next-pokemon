@@ -2,14 +2,14 @@ import useSWR from 'swr';
 import { INamedApiResource, IPokemon } from 'pokeapi-typescript';
 import React from 'react';
 import PokemonSearchItem from './PokemonSearchItem';
-import { getAllPokemons, pokemonFetcher } from '../../api/pokemon';
+import { ALL_POKEMONS, getAllPokemons } from '../../api/pokemon';
 import Image from 'next/image';
 import charmander from '../../public/charmander.png';
 
 const SearchComponent = () => {
   const { data: pokemons } = useSWR<INamedApiResource<IPokemon>[]>(
-    getAllPokemons,
-    pokemonFetcher
+    ALL_POKEMONS,
+    getAllPokemons
   );
   const [searchTerm, setSearchTerm] = React.useState<string>('');
 

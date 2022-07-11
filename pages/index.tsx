@@ -2,15 +2,15 @@ import React from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 import { SWRConfig } from 'swr';
 import { INamedApiResource, IPokemon } from 'pokeapi-typescript';
-import { getAllPokemons, pokemonFetcher } from '../api/pokemon';
+import { ALL_POKEMONS, getAllPokemons } from '../api/pokemon';
 import SearchComponent from '../components/search/SearchComponent';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pokemons = await pokemonFetcher(getAllPokemons);
+  const pokemons = await getAllPokemons(ALL_POKEMONS);
   return {
     props: {
       fallback: {
-        [getAllPokemons]: pokemons,
+        [ALL_POKEMONS]: pokemons,
       },
     },
     revalidate: 10000,
@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 interface PageProps {
   fallback: {
-    [getAllPokemons]: INamedApiResource<IPokemon>[];
+    [ALL_POKEMONS]: INamedApiResource<IPokemon>[];
   };
 }
 
