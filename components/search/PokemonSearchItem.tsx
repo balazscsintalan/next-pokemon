@@ -8,9 +8,11 @@ interface PokemonItemProps {
 
 const PokemonSearchItem: React.FC<PokemonItemProps> = ({ pokemon }) => {
   return (
-    <div className="p-1 m-1 border-2 border-red-400 bg-gray-100 bg-opacity-50 rounded">
-      <Link href={`/pokemon/${pokemon.name}`}>{pokemon.name}</Link>
-    </div>
+    <Link href={`/pokemon/${pokemon.name}`}>
+      <a className="p-1 m-1 border-2 border-red-400 bg-gray-100 bg-opacity-50 rounded">
+        {pokemon.name}
+      </a>
+    </Link>
   );
 };
 
